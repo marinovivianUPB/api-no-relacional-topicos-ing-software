@@ -1,7 +1,7 @@
 import { Long, Timestamp, ObjectId } from "typeorm";
 
 export interface IPagoEntity {
-    id?: ObjectId;
+    _id?: ObjectId;
     ventaId: string;
     comprador: Long;
     monto: number;

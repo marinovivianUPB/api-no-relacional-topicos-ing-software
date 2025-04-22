@@ -12,7 +12,7 @@ import { IMapaEntity } from "../../domain/entities/IMapaEntity.js";
 @Entity()
 export class MapaEntity implements IMapaEntity {
     @ObjectIdColumn()
-    id?: ObjectId;
+    _id?: ObjectId;
     @Column({type: "number"})
     numberOfRows: number;
     @Column({type: "number"})

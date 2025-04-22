@@ -11,7 +11,7 @@ import { IEventoEntity } from "../../domain/entities/IEventoEntity.js";
 @Entity()
 export class EventoEntity implements IEventoEntity {
   @ObjectIdColumn()
-  id?: ObjectId;
+  _id?: ObjectId;
   @Column({type: "string"})
   nombre: string;
   @Column({type: "double"})

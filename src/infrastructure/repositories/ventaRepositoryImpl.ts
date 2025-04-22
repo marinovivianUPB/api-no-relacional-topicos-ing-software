@@ -8,7 +8,7 @@ import logger from "../logger/logger.js";
 export class VentaRepositoryImpl implements VentaRepository {
   async deleteVenta(id: string): Promise<void> {
     const ventaRepository = AppDataSource.getRepository(VentaEntity);
-    const venta = await ventaRepository.findOneBy({id: new ObjectId(id)});
+    const venta = await ventaRepository.findOneBy({_id: new ObjectId(id)});
     if(!venta){
         logger.error(`VentaRepository: Error al eliminar la venta con ID: ${id}.`);
         throw new Error("No se pudo eliminar la venta");
@@ -17,7 +17,7 @@ export class VentaRepositoryImpl implements VentaRepository {
   }
   async findById(id: string): Promise<Venta> {
     const ventaRepository = AppDataSource.getRepository(VentaEntity);
-    const venta = await ventaRepository.findOneBy({ id: new ObjectId(id) });
+    const venta = await ventaRepository.findOne({ where: {_id: new ObjectId(id)} });
     return venta ? new Venta(venta) : null;
   }
   async createVenta(venta: Venta): Promise<Venta> {
@@ -45,7 +45,7 @@ export class VentaRepositoryImpl implements VentaRepository {
   async updateVenta(venta: Partial<Venta>): Promise<Venta> {
     const ventaRepository = AppDataSource.getRepository(VentaEntity);
     const ventaResponse = await ventaRepository.findOneBy({
-      id: new ObjectId(venta.id),
+      _id: new ObjectId(venta.id),
     });
 
     if (!ventaResponse) {

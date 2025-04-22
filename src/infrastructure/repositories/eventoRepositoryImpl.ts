@@ -22,7 +22,7 @@ export class EventoRepositoryImpl implements EventoRepository {
 
     async findById(id: string): Promise<Evento | null> { 
         const eventoRepository = AppDataSource.getRepository(EventoEntity);
-        const evento = await eventoRepository.findOneBy({id: new ObjectId(id)});
+        const evento = await eventoRepository.findOneBy({_id: new ObjectId(id)});
         return evento ? new Evento(evento) : null;
     }
 
@@ -37,7 +37,7 @@ export class EventoRepositoryImpl implements EventoRepository {
 
     async deleteEvento(id: string): Promise<void> {
         const eventoRepository = AppDataSource.getRepository(EventoEntity);
-        const evento = await eventoRepository.findOneBy({id: new ObjectId(id)});
+        const evento = await eventoRepository.findOneBy({_id: new ObjectId(id)});
         if(!evento){
             logger.error(`EventoRepository: Error al eliminar al evento con ID: ${id}.`);
             throw new Error("No se pudo eliminar el evento");

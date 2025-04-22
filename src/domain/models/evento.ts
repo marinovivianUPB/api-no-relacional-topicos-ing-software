@@ -10,7 +10,7 @@ export class Evento {
     createdAt: Date;
     createdBy: Long;
     constructor(evento: IEventoEntity) {
-        this.id = evento.id?.toString();
+        this.id = evento._id? evento._id.toString() : "";
         this.nombre = evento.nombre;
         this.costoAsiento = evento.costoAsiento;
         this.descuentoDisponible = evento.descuentoDisponible;

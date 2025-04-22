@@ -14,7 +14,7 @@ export class Venta {
     createdAt: Date
     createdBy: Long
     constructor(venta: IVentaEntity) {
-        this.id = venta.id? venta.id.toString() : "";
+        this.id = venta._id? venta._id.toString() : "";
         this.eventoId = venta.eventoId? venta.eventoId : "";
         this.comprador = venta.comprador;
         this.costoTotal = venta.costoTotal;

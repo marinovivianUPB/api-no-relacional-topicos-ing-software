@@ -11,7 +11,7 @@ import { IPagoEntity } from "../../domain/entities/IPagoEntity.js";
 @Entity()
 export class PagoEntity implements IPagoEntity {
     @ObjectIdColumn()
-    id?: ObjectId
+    _id?: ObjectId
     @Column({type: "string"})
     ventaId: string
     @Column({type: "long"})

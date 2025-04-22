@@ -12,7 +12,7 @@ import { IVentaEntity } from "../../domain/entities/IVentaEntity.js";
   @Entity()
   export class VentaEntity implements IVentaEntity {
     @ObjectIdColumn()
-    id?: ObjectId
+    _id?: ObjectId
     @Column({ type: "string" })
     eventoId: string
     @Column({type: "long"})

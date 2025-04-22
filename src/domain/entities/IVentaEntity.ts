@@ -2,7 +2,7 @@ import { List } from './../../../node_modules/mongodb/src/utils';
 import { Long, ObjectId} from "typeorm";
 
 export interface IVentaEntity {
-    id?: ObjectId;
+    _id?: ObjectId;
     eventoId: string;
     comprador: Long;
     costoTotal: number;

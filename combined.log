@@ -1,0 +1,30 @@
+info: ::1 - - [22/Apr/2025:21:42:03 +0000] "GET /api/ventas/evento/6806d4a41b50091d1039c26f HTTP/1.1" 200 224 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:17:42:03 -0400"}
+info: ::1 - - [22/Apr/2025:21:43:48 +0000] "GET /api/ventas/6806d6c0a1a11dd787ffd9be HTTP/1.1" 500 581 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:17:43:48 -0400"}
+info: ::1 - - [22/Apr/2025:21:44:50 +0000] "GET /api/ventas/6806d6c0a1a11dd787ffd9be HTTP/1.1" 500 581 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:17:44:50 -0400"}
+info: Intentando obtener la venta con ID: 6806d6c0a1a11dd787ffd9be {"timestamp":"22/Apr/2025:17:47:38 -0400"}
+info: ::1 - - [22/Apr/2025:21:47:38 +0000] "GET /api/ventas/6806d6c0a1a11dd787ffd9be HTTP/1.1" 500 581 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:17:47:38 -0400"}
+info: ::1 - - [22/Apr/2025:22:08:24 +0000] "GET /api/ventas/6806d6c0a1a11dd787ffd9be HTTP/1.1" 200 222 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:08:24 -0400"}
+info: Venta con ID: 6806d6c0a1a11dd787ffd9be eliminada con éxito {"timestamp":"22/Apr/2025:18:08:41 -0400"}
+info: ::1 - - [22/Apr/2025:22:08:41 +0000] "DELETE /api/ventas/6806d6c0a1a11dd787ffd9be HTTP/1.1" 200 40 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:08:41 -0400"}
+info: Venta con ID: 6806e08741d286364b2d4823 eliminada con éxito {"timestamp":"22/Apr/2025:18:09:35 -0400"}
+info: ::1 - - [22/Apr/2025:22:09:35 +0000] "DELETE /api/ventas/6806e08741d286364b2d4823 HTTP/1.1" 200 40 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:09:35 -0400"}
+info: Venta con ID: 6806df81d9568e3490247946 eliminada con éxito {"timestamp":"22/Apr/2025:18:09:47 -0400"}
+info: ::1 - - [22/Apr/2025:22:09:47 +0000] "DELETE /api/ventas/6806df81d9568e3490247946 HTTP/1.1" 200 40 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:09:47 -0400"}
+info: Venta con ID: 6806dc0521cd8608ad225d47 eliminada con éxito {"timestamp":"22/Apr/2025:18:09:57 -0400"}
+info: ::1 - - [22/Apr/2025:22:09:57 +0000] "DELETE /api/ventas/6806dc0521cd8608ad225d47 HTTP/1.1" 200 40 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:09:57 -0400"}
+info: Venta con ID: 6806d987bde7e416b517008b eliminada con éxito {"timestamp":"22/Apr/2025:18:10:05 -0400"}
+info: ::1 - - [22/Apr/2025:22:10:05 +0000] "DELETE /api/ventas/6806d987bde7e416b517008b HTTP/1.1" 200 40 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:10:05 -0400"}
+info: Venta con ID: 6806d7100798ecd45fd10844 eliminada con éxito {"timestamp":"22/Apr/2025:18:10:13 -0400"}
+info: ::1 - - [22/Apr/2025:22:10:13 +0000] "DELETE /api/ventas/6806d7100798ecd45fd10844 HTTP/1.1" 200 40 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:10:13 -0400"}
+info: ::1 - - [22/Apr/2025:22:10:18 +0000] "GET /api/ventas/evento/6806d4a41b50091d1039c26f HTTP/1.1" 200 224 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:10:18 -0400"}
+info: ::1 - - [22/Apr/2025:22:17:08 +0000] "POST /api/ventas/ HTTP/1.1" 403 30 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:17:08 -0400"}
+info: ::1 - - [22/Apr/2025:22:17:36 +0000] "POST /api/pagos/ HTTP/1.1" 400 70 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:17:36 -0400"}
+info: ::1 - - [22/Apr/2025:22:20:06 +0000] "POST /api/ventas/ HTTP/1.1" 403 30 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:20:06 -0400"}
+info: ::1 - - [22/Apr/2025:22:20:15 +0000] "POST /api/ventas/ HTTP/1.1" 201 222 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:20:15 -0400"}
+info: ::1 - - [22/Apr/2025:22:21:58 +0000] "POST /api/pagos/ HTTP/1.1" 201 113 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:21:58 -0400"}
+info: ::1 - - [22/Apr/2025:22:22:57 +0000] "GET /api/pagos/6806e476f07adab3e3e39a6b HTTP/1.1" 200 115 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:22:57 -0400"}
+info: ::1 - - [22/Apr/2025:22:23:05 +0000] "POST /api/pagos/ HTTP/1.1" 201 113 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:23:05 -0400"}
+info: ::1 - - [22/Apr/2025:22:23:10 +0000] "GET /api/pagos/6806e476f07adab3e3e39a6b HTTP/1.1" 200 229 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:23:10 -0400"}
+info: ::1 - - [22/Apr/2025:22:24:23 +0000] "PUT /api/ventas/ HTTP/1.1" 201 221 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:24:23 -0400"}
+info: ::1 - - [22/Apr/2025:22:24:35 +0000] "GET /api/ventas/6806d6c0a1a11dd787ffd9be HTTP/1.1" 500 581 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:24:35 -0400"}
+info: ::1 - - [22/Apr/2025:22:24:44 +0000] "GET /api/ventas/6806e476f07adab3e3e39a6b HTTP/1.1" 200 221 "-" "PostmanRuntime/7.43.3" {"timestamp":"22/Apr/2025:18:24:44 -0400"}

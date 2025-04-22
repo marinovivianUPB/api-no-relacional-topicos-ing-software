@@ -10,7 +10,7 @@ export class Pago{
     createdBy: Long
 
     constructor(pago: IPagoEntity){
-        this.id = pago.id.toString();
+        this.id =  pago._id? pago._id.toString() : "";
         this.ventaId = pago.ventaId;
         this.comprador = pago.comprador;
         this.monto = pago.monto;

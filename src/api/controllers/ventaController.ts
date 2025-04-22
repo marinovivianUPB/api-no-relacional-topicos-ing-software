@@ -4,6 +4,7 @@ import logger from "../../infrastructure/logger/logger.js";
 import { verifyTokenMiddleware } from "../middleware/verifyToken.js";
 import { VentaDTO } from '../../app/dtos/venta.dto.js';
 import { CreateVentaDTO } from '../../app/dtos/create.venta.dto.js';
+import { UpdateVentaDTO } from '../../app/dtos/update.venta.dto.js';
 
 export class VentaController {
     public router: Router;
@@ -51,6 +52,20 @@ export class VentaController {
         return res.status(400).json({ message: error });
       }
     }
+
+    public async updateVenta(req:Request, res:Response): Promise<Response> {
+      try {
+        const eventoDTO: UpdateVentaDTO = req.body;
+        const evento = await this.ventaService.updateVenta(eventoDTO);
+        return res.status(201).json(evento);
+      } catch (error) {
+        if (error instanceof Error) {
+          console.log(error.message);
+          return res.status(400).json({ message: error.message });
+        }
+        return res.status(400).json({ message: error });
+      }
+    }
   
     public async deleteVenta(req: Request, res: Response): Promise<Response> {
       const { id } = req.params;
@@ -71,6 +86,7 @@ export class VentaController {
       this.router.get("/evento/:id", verifyTokenMiddleware, this.getByEventoId.bind(this));
       this.router.get("/:id", verifyTokenMiddleware, this.getVentaById.bind(this));
       this.router.post("/", verifyTokenMiddleware, this.createVenta.bind(this));
+      this.router.put("/", verifyTokenMiddleware, this.updateVenta.bind(this));
       this.router.delete("/:id", verifyTokenMiddleware, this.deleteVenta.bind(this));
     }
   }

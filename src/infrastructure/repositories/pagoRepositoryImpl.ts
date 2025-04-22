@@ -25,7 +25,7 @@ export class PagoRepositoryImpl implements PagoRepository {
     }
     async deletePago(id: string): Promise<void> {
         const pagoRepository = AppDataSource.getRepository(PagoEntity);
-        const pago = await pagoRepository.findOneBy({id: new ObjectId(id)});
+        const pago = await pagoRepository.findOneBy({_id: new ObjectId(id)});
         if(!pago){
             logger.error(`VentaRepository: Error al eliminar el pago con ID: ${id}.`);
             throw new Error("No se pudo eliminar la venta");

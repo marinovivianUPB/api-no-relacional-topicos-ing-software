@@ -1,7 +1,7 @@
 import { Long, ObjectId } from "typeorm";
 
 export interface IEventoEntity {
-    id?: ObjectId;
+    _id?: ObjectId;
     nombre: string;
     costoAsiento: number;
     descuentoDisponible: number;
