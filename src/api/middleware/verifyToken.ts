@@ -1,11 +1,14 @@
 import { Request, Response, NextFunction } from "express";
 import { EncryptImpl } from "../../infrastructure/utils/encrypt.jwt.js";
+import logger from "../../infrastructure/logger/logger.js";
 
 export const verifyTokenMiddleware = (
   req: Request,
   res: Response,
   next: NextFunction,
 ) => {
+
+  logger.info(`Request: ${req.headers.token}`)
   const authHeader = req.headers.token;
 
   if (authHeader) {

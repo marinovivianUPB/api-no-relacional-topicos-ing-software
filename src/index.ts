@@ -3,7 +3,7 @@ import 'reflect-metadata';
 import express, { Request, Response } from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
-
+import cors from "cors";
 
 import { AppDataSource } from "./infrastructure/config/dataSource.js";
 import logger from "./infrastructure/logger/logger.js";
@@ -19,6 +19,13 @@ AppDataSource.initialize()
     const PORT = env.port;
 
     app.use(express.json());
+
+    app.use(cors({
+      origin: 'http://localhost:4200', // ✅ Allow Angular frontend
+      credentials: true, // Optional: allow cookies/auth headers
+      allowedHeaders: ['Content-Type', 'token'], // 👈 allow 'token' header
+      exposedHeaders: ['token'] 
+    }));
 
     app.use(limiter);
     // Setup Logger
@@ -39,3 +46,4 @@ AppDataSource.initialize()
     });
   })
   .catch((error) => console.log(error));
+
