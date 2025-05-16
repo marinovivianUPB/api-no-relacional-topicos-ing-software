@@ -17,11 +17,8 @@ export class EventoService {
             const eventoDTO: EventoDTO = {
                 id: evento.id,
                 nombre: evento.nombre,
-                costoAsiento: evento.costoAsiento,
-                descuentoDisponible: evento.descuentoDisponible,
                 fechaRealizacion: evento.fechaRealizacion,
-                createdBy: evento.createdBy,
-                createdAt: evento.createdAt
+                createdBy: evento.createdBy
             };
             return eventoDTO
         });
