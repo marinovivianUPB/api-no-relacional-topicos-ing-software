@@ -6,7 +6,7 @@ export class EncryptImpl implements Encrypt {
   encrypt(data: object): string {
     const token = jwt.sign(data, jwtConfig.secretKey as string, {
       algorithm: "HS384",
-      expiresIn: jwtConfig.expirationTime,
+      expiresIn: parseInt(jwtConfig.expirationTime),
     });
     return token;
   }

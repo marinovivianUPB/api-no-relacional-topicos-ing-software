@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 
-import express, { Request, Response } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -40,6 +40,11 @@ AppDataSource.initialize()
     });
 
     app.use("/api", apiRoutes());
+
+    app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+      const status = err.status || 500;
+      res.status(status).json({ error: err.message || 'Internal Server Error' });
+    });
 
     app.listen(PORT, () => {
       console.log(`Servidor ejecutándose en http://localhost:${PORT}`);

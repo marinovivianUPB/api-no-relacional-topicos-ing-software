@@ -8,7 +8,7 @@
     "start": "tsx src/index.ts",
     "build": "tsc",
     "serve": "node dist/index.js",
-    "test": "mocha -r ts-node/register --project tsconfig.test.json 'test/**/*.spec.ts'",
+    "test": "npx tsx node_modules/mocha/bin/mocha.js --recursive \"test/**/*.spec.ts\"",
     "lint": "eslint 'src/**/*.{js,ts}'",
     "format": "prettier --write 'src/**/*.{js,ts,json,css,md}'"
   },
@@ -16,9 +16,14 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/chai": "^5.2.2",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
+    "@types/jest": "^29.5.14",
+    "@types/jsonwebtoken": "^9.0.9",
+    "@types/mocha": "^10.0.10",
     "@types/morgan": "^1.9.9",
+    "@types/sinon": "^17.0.4",
     "chai": "^5.2.0",
     "cross-env": "^7.0.3",
     "eslint": "^9.25.0",

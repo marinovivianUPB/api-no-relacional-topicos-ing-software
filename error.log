@@ -1,0 +1,1 @@
+error: Error al eliminar la Venta con ID: NO SE ENCONTRO EL ID DE LA VENTA. Error: BSONError: input must be a 24 character hex string, 12 byte Uint8Array, or an integer {"timestamp":"10/Jun/2025:15:29:16 -0400"}

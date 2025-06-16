@@ -34,9 +34,9 @@ export class PagoController {
       } catch (error) {
         if (error instanceof Error) {
           console.log(error.message);
-          return res.status(400).json({ message: error.message });
+          return res.status(500).json({ message: error.message });
         }
-        return res.status(400).json({ message: error });
+        return res.status(500).json({ message: error });
       }
     }
   

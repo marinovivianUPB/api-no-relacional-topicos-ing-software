@@ -45,8 +45,8 @@ export class VentaService {
             const ventaDTO : VentaDTO = {
                 id: venta.id,
                 comprador: venta.comprador,
-                costoTotal: venta.costoTotal,
-                descuentoAplicado: venta.descuentoAplicado,
+                //costoTotal: venta.costoTotal,
+                //descuentoAplicado: venta.descuentoAplicado,
                 costoConDescuento: venta.costoConDescuento,
                 listaDeAsientos: venta.listaDeAsientos,
                 pagoCompletado: venta.pagoCompletado,

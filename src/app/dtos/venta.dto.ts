@@ -6,7 +6,7 @@ export interface VentaDTO {
     comprador: Long;
     costoTotal?: number;
     costoConDescuento: number
-    descuentoAplicado: number;
+    descuentoAplicado?: number;
     listaDeAsientos: List<List<number>>
     pagoCompletado: boolean
     createdBy: Long;
