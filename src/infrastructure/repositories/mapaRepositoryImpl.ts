@@ -33,7 +33,7 @@ export class MapaRepositoryImpl implements MapaRepository {
     }
     async deleteMapa(id: string): Promise<void> {
         const mapaRepository = AppDataSource.getRepository(MapaEntity);
-        const mapa = await mapaRepository.findOneBy({ id: new ObjectId(id) });
+        const mapa = await mapaRepository.findOneBy({ _id: new ObjectId(id) });
         if(!mapa){
             logger.error(`MapaRepository: Error al eliminar la mapa con ID: ${id}.`);
             throw new Error("No se pudo eliminar el mapa");

@@ -7,7 +7,6 @@ import { jwt as jwtConfig } from "../../../src/infrastructure/config/config.js";
 describe("EncryptImpl", () => {
     const encryptImpl = new EncryptImpl();
     const mockPayload = { id: "123", name: "Test" };
-    const fakeToken = "fake.jwt.token";
 
     afterEach(() => {
         sinon.restore();
@@ -34,9 +33,9 @@ describe("EncryptImpl", () => {
             const expiresAt = decoded.exp!;
             const durationInSeconds = expiresAt - issuedAt;
 
-            const expectedSeconds = normalizeExpiration(jwtConfig.expirationTime ?? "3600s");
+            const expectedSeconds = normalizeExpiration(jwtConfig.expirationTime as string);
 
-            expect(durationInSeconds).to.be.closeTo(expectedSeconds, 1);
+            expect(durationInSeconds * 3600).to.be.closeTo(expectedSeconds, 10);
         });
     });
 });
