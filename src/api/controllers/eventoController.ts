@@ -14,12 +14,12 @@ export class EventoController {
     this.routes();
   }
 
-  public async getEventos(req: Request, res: Response): Promise<Response> {
+  public async getEventos(req: Request, res: Response): Promise<void> {
     const eventos: EventoDTO[] = await this.eventoService.getEventos();
-    return res.status(200).json(eventos);
+    res.status(200).json(eventos);
   }
 
-  public async getEventoById(req: Request, res: Response): Promise<Response> {
+  public async getEventoById(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
     const evento: EventoDTO | null = await this.eventoService.getEventoById(id);
 
@@ -28,35 +28,35 @@ export class EventoController {
       return;
     }
 
-    return res.status(200).json(evento);
+    res.status(200).json(evento);
   }
 
-  public async createEvento(req: Request, res: Response): Promise<Response> {
+  public async createEvento(req: Request, res: Response): Promise<void> {
     try {
       const eventoDTO: CreateEventoDTO = req.body;
       const evento = await this.eventoService.createEvento(eventoDTO);
-      return res.status(201).json(evento);
+      res.status(201).json(evento);
     } catch (error) {
       if (error instanceof Error) {
         console.log(error.message);
-        return res.status(500).json({ message: error.message });
+        res.status(500).json({ message: error.message });
       }
-      return res.status(500).json({ message: error });
+      res.status(500).json({ message: error });
     }
   }
 
-  public async deleteEvento(req: Request, res: Response): Promise<Response> {
+  public async deleteEvento(req: Request, res: Response): Promise<void> {
     const { id } = req.params;
     try {
       logger.debug(`Intentando eliminar al evento con ID: ${id}`);
       await this.eventoService.delete(id);
       logger.info(`Evento con ID: ${id} eliminado con éxito`);
-      return res.status(200).json({ message: "Evento eliminado con éxito" });
+      res.status(200).json({ message: "Evento eliminado con éxito" });
     } catch (error) {
       logger.error(
         `Error al eliminar al Evento con ID: ${id}. Error: ${error}`,
       );
-      return res.status(500).json({ message: error });
+      res.status(500).json({ message: error });
     }
   }
 

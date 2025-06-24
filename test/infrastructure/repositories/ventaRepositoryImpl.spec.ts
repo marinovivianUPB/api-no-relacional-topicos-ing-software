@@ -7,7 +7,6 @@ import { Venta } from "../../../src/domain/models/venta.js";
 import logger from "../../../src/infrastructure/logger/logger.js";
 import { ObjectId } from "mongodb";
 import { Long } from "typeorm";
-import { List } from "mongodb/src/utils.js";
 
 describe("VentaRepositoryImpl", () => {
   let repo: VentaRepositoryImpl;
@@ -35,7 +34,7 @@ describe("VentaRepositoryImpl", () => {
     it("create and save a Venta", async () => {
 
         const asientos = [[1, 2], [3, 4]];
-        const asientosList = asientos as unknown as List<List<number>>;
+        const asientosList = asientos as unknown as Array<Array<number>>;
       const input : VentaEntity = {
         eventoId: "507f1f77bcf86cd799439011",
         comprador: 2 as unknown as Long,

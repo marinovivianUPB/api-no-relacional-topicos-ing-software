@@ -21,14 +21,13 @@ AppDataSource.initialize()
     app.use(express.json());
 
     app.use(cors({
-      origin: 'http://localhost:4200', // ✅ Allow Angular frontend
+      origin: 'http://localhost:4200',
       credentials: true, // Optional: allow cookies/auth headers
-      allowedHeaders: ['Content-Type', 'token'], // 👈 allow 'token' header
+      allowedHeaders: ['Content-Type', 'token'],
       exposedHeaders: ['token'] 
     }));
 
     app.use(limiter);
-    // Setup Logger
     app.use(
       morgan("combined", {
         stream: { write: (message: string) => logger.info(message.trim()) },

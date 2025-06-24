@@ -15,7 +15,7 @@ export class VentaController {
       this.routes();
     }
   
-    public async getByEventoId(req: Request, res: Response): Promise<Response> {
+    public async getByEventoId(req: Request, res: Response): Promise<void> {
       const { id } = req.params;
       const venta: VentaDTO[] = await this.ventaService.getVentasByEventoId(id);
 
@@ -24,10 +24,10 @@ export class VentaController {
         return;
       }
 
-      return res.status(200).json(venta);
+      res.status(200).json(venta);
     }
   
-    public async getVentaById(req: Request, res: Response): Promise<Response> {
+    public async getVentaById(req: Request, res: Response): Promise<void> {
       const { id } = req.params;
       const venta: VentaDTO | null = await this.ventaService.getVentaById(id);
   
@@ -36,49 +36,49 @@ export class VentaController {
         return;
       }
   
-      return res.status(200).json(venta);
+      res.status(200).json(venta);
     }
   
-    public async createVenta(req: Request, res: Response): Promise<Response> {
+    public async createVenta(req: Request, res: Response): Promise<void> {
       try {
         const eventoDTO: CreateVentaDTO = req.body;
         const evento = await this.ventaService.createVenta(eventoDTO);
-        return res.status(201).json(evento);
+        res.status(201).json(evento);
       } catch (error) {
         if (error instanceof Error) {
           console.log(error.message);
-          return res.status(500).json({ message: error.message });
+          res.status(500).json({ message: error.message });
         }
-        return res.status(500).json({ message: error });
+        res.status(500).json({ message: error });
       }
     }
 
-    public async updateVenta(req:Request, res:Response): Promise<Response> {
+    public async updateVenta(req:Request, res:Response): Promise<void> {
       try {
         const eventoDTO: UpdateVentaDTO = req.body;
         const evento = await this.ventaService.updateVenta(eventoDTO);
-        return res.status(201).json(evento);
+        res.status(201).json(evento);
       } catch (error) {
         if (error instanceof Error) {
           console.log(error.message);
-          return res.status(500).json({ message: error.message });
+          res.status(500).json({ message: error.message });
         }
-        return res.status(500).json({ message: error });
+        res.status(500).json({ message: error });
       }
     }
   
-    public async deleteVenta(req: Request, res: Response): Promise<Response> {
+    public async deleteVenta(req: Request, res: Response): Promise<void> {
       const { id } = req.params;
       try {
         logger.debug(`Intentando eliminar la venta con ID: ${id}`);
         await this.ventaService.delete(id);
         logger.info(`Venta con ID: ${id} eliminada con éxito`);
-        return res.status(200).json({ message: "Venta eliminada con éxito" });
+        res.status(200).json({ message: "Venta eliminada con éxito" });
       } catch (error) {
         logger.error(
           `Error al eliminar la Venta con ID: ${id}. Error: ${error}`,
         );
-        return res.status(500).json({ message: error });
+        res.status(500).json({ message: error });
       }
     }
   

@@ -1,5 +1,4 @@
-import { List } from './../../../node_modules/mongodb/src/utils';
-import { Long, Timestamp } from "typeorm";
+import { Long} from "typeorm";
 
 export interface PagoDTO {
     id: string;

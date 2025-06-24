@@ -1,11 +1,9 @@
-import { List } from './../../../node_modules/mongodb/src/utils';
-import { ObjectId} from "typeorm";
 import { IMapaEntity } from "../entities/IMapaEntity.js";
 
 export class Mapa {
     id?: string
     numberOfRows: number
-    rows: List<List<number>>
+    rows: Array<Array<number>>
     availableSeats: number
     eventoId?: string
     original: boolean

@@ -1,4 +1,3 @@
-import { List } from './../../../node_modules/mongodb/src/utils';
 import {
     Entity,
     ObjectIdColumn,
@@ -18,7 +17,7 @@ export class MapaEntity implements IMapaEntity {
     @Column({type: "number"})
     availableSeats: number;
     @Column({type: "array"})
-    rows: List<List<number>>;
+    rows: Array<Array<number>>;
     @Column({type: "string"})
     eventoId?: string;
     @Column({type: "boolean"})

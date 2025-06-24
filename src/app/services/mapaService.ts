@@ -1,4 +1,3 @@
-import { ObjectId } from "mongodb";
 import { MapaRepository } from "../../domain/interfaces/mapaRepository.js";
 import { MapaEntity } from "../../infrastructure/entities/mapaEntity.js";
 import { CreateMapaDTO } from "../dtos/create.mapa.dto.js";

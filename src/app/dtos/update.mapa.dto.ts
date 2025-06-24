@@ -1,7 +1,5 @@
-import { List } from './../../../node_modules/mongodb/src/utils';
-
 export interface UpdateMapaDTO {
     id: string;
-    rows: List<List<number>>
+    rows: Array<Array<number>>
     availableSeats: number;
 }

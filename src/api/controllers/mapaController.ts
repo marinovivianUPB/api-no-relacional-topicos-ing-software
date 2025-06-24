@@ -14,7 +14,7 @@ export class MapaController {
       this.routes();
     }
   
-    public async getByEventoId(req: Request, res: Response): Promise<Response> {
+    public async getByEventoId(req: Request, res: Response): Promise<void> {
       const { id } = req.params;
       const mapa: MapaDTO = await this.mapaService.findByEventoId(id);
 
@@ -23,10 +23,10 @@ export class MapaController {
         return;
       }
 
-      return res.status(200).json(mapa);
+      res.status(200).json(mapa);
     }
   
-    public async getOriginal(req: Request, res: Response): Promise<Response> {
+    public async getOriginal(req: Request, res: Response): Promise<void> {
         const mapa: MapaDTO = await this.mapaService.findOriginal();
 
         if (!mapa) {
@@ -34,35 +34,35 @@ export class MapaController {
           return;
         }
   
-        return res.status(200).json(mapa);
+        res.status(200).json(mapa);
     }
   
-    public async saveMapa(req: Request, res: Response): Promise<Response> {
+    public async saveMapa(req: Request, res: Response): Promise<void> {
       try {
         const mapaDTO: CreateMapaDTO = req.body;
         const mapa = await this.mapaService.saveMapa(mapaDTO);
-        return res.status(201).json(mapa);
+        res.status(201).json(mapa);
       } catch (error) {
         if (error instanceof Error) {
           console.log(error.message);
-          return res.status(400).json({ message: error.message });
+          res.status(400).json({ message: error.message });
         }
-        return res.status(400).json({ message: error });
+        res.status(400).json({ message: error });
       }
     }
   
-    public async deleteMapa(req: Request, res: Response): Promise<Response> {
+    public async deleteMapa(req: Request, res: Response): Promise<void> {
       const { id } = req.params;
       try {
         logger.debug(`Intentando eliminar al mapa con ID: ${id}`);
         await this.mapaService.deleteMapa(id);
         logger.info(`Mapa con ID: ${id} eliminado con éxito`);
-        return res.status(200).json({ message: "Mapa eliminado con éxito" });
+        res.status(200).json({ message: "Mapa eliminado con éxito" });
       } catch (error) {
         logger.error(
           `Error al eliminar al Mapa con ID: ${id}. Error: ${error}`,
         );
-        return res.status(500).json({ message: error });
+        res.status(500).json({ message: error });
       }
     }
   

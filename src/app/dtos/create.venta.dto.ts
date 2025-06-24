@@ -1,4 +1,3 @@
-import { List } from './../../../node_modules/mongodb/src/utils';
 import { Long} from "typeorm";
 
 export interface CreateVentaDTO {
@@ -6,6 +5,6 @@ export interface CreateVentaDTO {
     eventoId: string
     costoTotal: number;
     descuentoAplicado: number;
-    listaDeAsientos: List<List<number>>;
+    listaDeAsientos: Array<Array<number>>;
     createdBy: Long;
 }

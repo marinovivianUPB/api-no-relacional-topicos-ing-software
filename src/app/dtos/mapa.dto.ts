@@ -1,9 +1,7 @@
-import { List } from './../../../node_modules/mongodb/src/utils';
-
 export interface MapaDTO {
     id: string;
     numberOfRows: number
-    rows: List<List<number>>
+    rows: Array<Array<number>>
     availableSeats: number
     original: boolean
 }

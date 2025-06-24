@@ -14,7 +14,7 @@ export class PagoController {
       this.routes();
     }
   
-    public async getByVentaId(req: Request, res: Response): Promise<Response> {
+    public async getByVentaId(req: Request, res: Response): Promise<void> {
       const { id } = req.params;
       const pago: PagoDTO[] = await this.pagoService.getPagosByVentaId(id);
 
@@ -23,35 +23,35 @@ export class PagoController {
         return;
       }
 
-      return res.status(200).json(pago);
+      res.status(200).json(pago);
     }
   
-    public async createPago(req: Request, res: Response): Promise<Response> {
+    public async createPago(req: Request, res: Response): Promise<void> {
       try {
         const pagoDTO: CreatePagoDTO = req.body;
         const pago = await this.pagoService.createPago(pagoDTO);
-        return res.status(201).json(pago);
+        res.status(201).json(pago);
       } catch (error) {
         if (error instanceof Error) {
           console.log(error.message);
-          return res.status(500).json({ message: error.message });
+          res.status(500).json({ message: error.message });
         }
-        return res.status(500).json({ message: error });
+        res.status(500).json({ message: error });
       }
     }
   
-    public async deletePago(req: Request, res: Response): Promise<Response> {
+    public async deletePago(req: Request, res: Response): Promise<void> {
       const { id } = req.params;
       try {
         logger.debug(`Intentando eliminar el pago con ID: ${id}`);
         await this.pagoService.delete(id);
         logger.info(`Pago con ID: ${id} eliminado con éxito`);
-        return res.status(200).json({ message: "Pago eliminado con éxito" });
+        res.status(200).json({ message: "Pago eliminado con éxito" });
       } catch (error) {
         logger.error(
           `Error al eliminar al Pago con ID: ${id}. Error: ${error}`,
         );
-        return res.status(500).json({ message: error });
+        res.status(500).json({ message: error });
       }
     }
   

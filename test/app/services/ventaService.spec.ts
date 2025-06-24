@@ -5,7 +5,6 @@ import { VentaRepository } from "../../../src/domain/interfaces/ventaRepository.
 import { Venta } from "../../../src/domain/models/venta.js";
 import { CreateVentaDTO } from "../../../src/app/dtos/create.venta.dto.js";
 import { UpdateVentaDTO } from "../../../src/app/dtos/update.venta.dto.js";
-import { List } from "mongodb/src/utils.js";
 import { Long } from "typeorm";
 import { ObjectId } from "mongodb";
 
@@ -30,7 +29,7 @@ describe("VentaService", () => {
   describe("createVenta", () => {
     it("create a new venta and return VentaDTO", async () => {
       const asientos = [[1, 2], [3, 4]];
-      const asientosList = asientos as unknown as List<List<number>>;
+      const asientosList = asientos as unknown as Array<Array<number>>;
       const dto: CreateVentaDTO = {
         eventoId: "evento123",
         comprador: 2 as unknown as Long,
@@ -72,9 +71,9 @@ describe("VentaService", () => {
   describe("getVentasByEventoId", () => {
     it("return an array of VentaDTO", async () => {
       const asientos = [[1, 2], [3, 4]];
-      const asientosList = asientos as unknown as List<List<number>>;
+      const asientosList = asientos as unknown as Array<Array<number>>;
       const asientos2 = [[0, 2], [2, 4]];
-      const asientosList2 = asientos2 as unknown as List<List<number>>;
+      const asientosList2 = asientos2 as unknown as Array<Array<number>>;
       const ventasMock = [
         new Venta({
           _id: new ObjectId("507f1f77bcf86cd799439011"),
@@ -121,7 +120,7 @@ describe("VentaService", () => {
   describe("getVentaById", () => {
     it("return a VentaDTO by id", async () => {
       const asientos = [[1, 2], [3, 4]];
-      const asientosList = asientos as unknown as List<List<number>>;
+      const asientosList = asientos as unknown as Array<Array<number>>;
       const venta = new Venta({
         _id: new ObjectId("507f1f77bcf86cd799439011"),
         eventoId: "507f1f77bcf86cd799439211",
@@ -158,7 +157,7 @@ describe("VentaService", () => {
         id: "507f1f77bcf86cd799439011"
       };
       const asientos = [[1, 2], [3, 4]];
-      const asientosList = asientos as unknown as List<List<number>>;
+      const asientosList = asientos as unknown as Array<Array<number>>;
 
       const updatedVenta = new Venta({
         _id: new ObjectId("507f1f77bcf86cd799439011"),

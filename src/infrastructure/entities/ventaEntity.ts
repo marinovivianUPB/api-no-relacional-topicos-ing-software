@@ -5,7 +5,6 @@ import {
     ObjectId,
     Long
   } from "typeorm";
-import { List } from './../../../node_modules/mongodb/src/utils.js';
 
 import { IVentaEntity } from "../../domain/entities/IVentaEntity.js";
 
@@ -22,7 +21,7 @@ import { IVentaEntity } from "../../domain/entities/IVentaEntity.js";
     @Column({type: "double"})
     costoTotal: number
     @Column({type: "array"})
-    listaDeAsientos: List<List<number>>
+    listaDeAsientos: Array<Array<number>>
     @Column({type: "boolean"})
     pagoCompletado: boolean
     @Column({type: "date"})

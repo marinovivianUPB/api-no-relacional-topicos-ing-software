@@ -1,4 +1,3 @@
-import { List } from './../../../node_modules/mongodb/src/utils';
 import { Long, ObjectId} from "typeorm";
 
 export interface IVentaEntity {
@@ -7,7 +6,7 @@ export interface IVentaEntity {
     comprador: Long;
     costoTotal: number;
     descuentoAplicado:number;
-    listaDeAsientos: List<List<number>>;
+    listaDeAsientos: Array<Array<number>>;
     pagoCompletado: boolean;
     createdAt: Date;
     createdBy: Long;

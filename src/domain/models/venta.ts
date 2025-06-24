@@ -1,6 +1,5 @@
-import { Long, Timestamp } from "typeorm";
+import { Long} from "typeorm";
 import { IVentaEntity } from "../entities/IVentaEntity.js";
-import { List } from './../../../node_modules/mongodb/src/utils';
 
 export class Venta {
     id?: string
@@ -9,7 +8,7 @@ export class Venta {
     costoTotal: number
     descuentoAplicado: number
     costoConDescuento: number
-    listaDeAsientos: List<List<number>>
+    listaDeAsientos: Array<Array<number>>
     pagoCompletado: boolean
     createdAt: Date
     createdBy: Long

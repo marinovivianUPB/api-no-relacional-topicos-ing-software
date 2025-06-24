@@ -6,20 +6,22 @@ export const verifyTokenMiddleware = (
   req: Request,
   res: Response,
   next: NextFunction,
-) => {
+): void => {
+  logger.info(`Request: ${req.headers.token}`);
 
-  logger.info(`Request: ${req.headers.token}`)
   const authHeader = req.headers.token;
 
   if (authHeader) {
-
     const encrypt = new EncryptImpl();
     const valid = encrypt.decrypt(authHeader as string);
-      if (!valid) {
-        return res.status(403).json({ message: "Token no válido" });
-      }
-      next();
+
+    if (!valid) {
+      res.status(403).json({ message: "Token no válido" }); // <-- No return
+      return;
+    }
+
+    next();
   } else {
-    res.status(401).json({ message: "Token no proporcionado" });
+    res.status(401).json({ message: "Token no proporcionado" }); // <-- No return
   }
 };

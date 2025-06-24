@@ -1,10 +1,9 @@
-import { List } from './../../../node_modules/mongodb/src/utils';
-import { Long, Timestamp, ObjectId } from "typeorm";
+import { Long, ObjectId } from "typeorm";
 
 export interface IMapaEntity {
     _id?: ObjectId;
     numberOfRows: number;
-    rows: List<List<number>>;
+    rows: Array<Array<number>>;
     eventoId?: string;
     original: boolean;
     availableSeats?: number;

@@ -1,5 +1,4 @@
-import { List } from './../../../node_modules/mongodb/src/utils';
-import { Long, Timestamp } from "typeorm";
+import { Long} from "typeorm";
 
 export interface VentaDTO {
     id: string;
@@ -7,7 +6,7 @@ export interface VentaDTO {
     costoTotal?: number;
     costoConDescuento: number
     descuentoAplicado?: number;
-    listaDeAsientos: List<List<number>>
+    listaDeAsientos: Array<Array<number>>
     pagoCompletado: boolean
     createdBy: Long;
     createdAt: Date;
